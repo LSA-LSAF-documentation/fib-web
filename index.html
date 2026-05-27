@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> | Federal Investigation Bureau - Inicio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicom.png">
+    <style>
+        .leadership-link {
+            text-decoration: none;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .leadership-link:hover {
+            transform: scale(1.02);
+        }
+        .leadership-link:hover .leadership-overlay {
+            background: rgba(0,0,0,0.7);
+        }
+        .leadership-card {
+            background-image: url('images/fondo1.png');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            cursor: pointer;
+        }
+        .leadership-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.6);
+            border-radius: 12px;
+            transition: background 0.3s ease;
+        }
+        .leadership-content {
+            position: relative;
+            z-index: 1;
+        }
+        .leadership-content h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        .leadership-content p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Carrusel de fondo */
+.slideshow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* Ajuste para que el contenido se vea sobre el fondo */
+body {
+    position: relative;
+    background-color: transparent;
+}
+
+main.container {
+    background: transparent;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    backdrop-filter: blur(0px);
+}
+
+/* Fondo solo para el área de contenido */
+.content-wrapper {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+header, footer {
+    position: relative;
+    z-index: 1;
+}
+    </style>
+</head>
+<body>
+
+    <!-- Carrusel de fondo -->
+<div class="slideshow-container">
+    <div class="slide" style="background-image: url('images/index1.png');"></div>
+    <div class="slide" style="background-image: url('images/index2.png');"></div>
+    <div class="slide" style="background-image: url('images/index3.png');"></div>
+    <div class="slide" style="background-image: url('images/index4.png');"></div>
+    <div class="slide" style="background-image: url('images/index5.png');"></div>
+    <div class="slide" style="background-image: url('images/index6.png');"></div>
+    <div class="slide" style="background-image: url('images/index7.png');"></div>
+    <div class="slide" style="background-image: url('images/index8.png');"></div>
+    <div class="slide" style="background-image: url('images/index9.png');"></div>
+    <div class="slide" style="background-image: url('images/index10.png');"></div>
+    <div class="slide" style="background-image: url('images/index11.png');"></div>
+</div>
+
+<header class="site-header">
+    <div class="top-bar">
+        Gobierno de San Andreas - Oficial
+    </div>
+    <div class="main-header">
+        <div class="logo-container">
+            <img src="images/fib-logo.png" alt="FIB Logo" class="logo">
+            <h1>FEDERAL INVESTIGATION BUREAU<br><span>San Andreas - Departamento de Justicia</span></h1>
+        </div>
+    </div>
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="investigate.html">QUE INVESTIGAMOS</a></li>
+            <li><a href="wanted.html">MÁS BUSCADOS</a></li>
+            <li><a href="news.html">NOTICIAS</a></li>
+            <li><a href="help.html">CÓMO AYUDAMOS</a></li>
+            <li><a href="about.html">SOBRE FIB</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    
+    
+
+    <div class="hero" style="background: linear-gradient(135deg, rgba(10, 22, 40, 0.7) 0%, rgba(30, 58, 95, 0.7) 100%);">
+    <h2>Protegiendo a Estados Unidos por todos los medios necesarios</h2>
+</div>
+
+    <!-- Sección Liderazgo con animación -->
+    <a href="leadership-and-structure.html" class="leadership-link">
+        <div class="leadership-card">
+            <div class="leadership-overlay"></div>
+            <div class="leadership-content">
+                <h2>Liderazgo y Estructura</h2>
+                <p>Conozca a los ejecutivos del FIB y cómo está organizada la agencia</p>
+            </div>
+        </div>
+    </a>
+
+    <h2 style="background-color: rgba(255, 255, 255, 0.85); display: inline-block; padding: 10px 20px; border-radius: 8px;">Últimas Operaciones</h2>
+    <div class="card-grid">
+        <div class="card">
+            <div class="card">
+    <img src="images/op-cayoperico.png" alt="Operación Cayo Perico" style="width: 100%; height: 160px; object-fit: cover;">
+    <div class="card-content">
+        <h3>Operación Cayo Perico</h3>
+        <p>Investigación en curso sobre actividades de contrabando y tráfico internacional en la isla de Cayo Perico.</p>
+    </div>
+</div>
+        </div>
+        <div class="card">
+            <div class="card">
+    <img src="images/corrupcion-ayuntamiento.png" alt="Corrupción en el Ayuntamiento" style="width: 100%; height: 160px; object-fit: cover;">
+    <div class="card-content">
+        <h3>Corrupción en el Ayuntamiento</h3>
+        <p>El FIB colabora con la fiscalía estatal en investigaciones sobre sobornos y malversación de fondos públicos.</p>
+    </div>
+</div>
+        </div>
+        <div class="card">
+            <div class="card">
+    <img src="images/cyberdelincuancia.png" alt="Ciberdelincuencia" style="width: 100%; height: 160px; object-fit: cover;">
+    <div class="card-content">
+        <h3>Ciberdelincuencia</h3>
+        <p>Desmantelada red de hackers que operaba desde Paleto Bay robando datos financieros.</p>
+    </div>
+</div>
+        </div>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>FIB San Andreas</h4>
+            <p>Protegiendo a los ciudadanos de Los Santos y el estado de San Andreas desde 1997.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Enlaces Rápidos</h4>
+            <ul>
+                <li><a href="investigate.html">Áreas de Investigación</a></li>
+                <li><a href="wanted.html">Los Más Buscados</a></li>
+                <li><a href="news.html">Comunicados de Prensa</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+    <h4>Contacto</h4>
+    <ul>
+        <li>Oficina Principal: Low Power Street, 3909 Pillbox Hill, Los Santos</li>
+        <li>Email: contacto@fib.sanandreas.gov</li>
+        <li style="display: flex; align-items: center; gap: 8px;">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg" alt="Discord" style="width: 20px; height: 20px; filter: invert(1);">
+            <a href="https://discord.gg/ETzcquNjat" target="_blank" style="color: #9cb3d4; text-decoration: none;">Discord: FIB Official</a>
+        </li>
+    </ul>
+</div>
+    </div>
+    <div class="footer-bottom">
+        <p>Este sitio web está hecho exclusivamente con fines de Roleplay en el juego "Grand Theft Auto V Legacy" del cual no se encuentra afiliado a sus creadores de manera oficial. Todos los derechos relacionados con; Nombres, marcas, y contenido son reservados para la compañía Rockstar Games, Rockstar North y Take Two Interactive. © Copyright MMXXV-MMXXVI.</p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+
+<script>
+    // Carrusel de fondo
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function showSlides() {
+        slides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+        slideIndex++;
+        if (slideIndex > totalSlides) {
+            slideIndex = 1;
+        }
+        slides[slideIndex - 1].classList.add('active');
+        setTimeout(showSlides, 5000); // Cambia cada 5 segundos
+    }
+
+    showSlides();
+</script>
+
+</body>
+</html>

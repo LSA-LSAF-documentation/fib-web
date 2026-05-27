@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> | Liderazgo y Estructura</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicom.png">
+    <style>
+        .leadership-hero {
+            background-image: linear-gradient(135deg, #0a1628, #1e3a5f);
+            background-size: cover;
+            background-position: center;
+            padding: 80px 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        .executive-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .executive-card h3 {
+            color: #0a1628;
+            border-left: 4px solid #1e3a5f;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+        .director-section {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .director-photo {
+            flex: 0 0 200px;
+        }
+        .director-photo .placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #1e3a5f, #0a1628);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+        }
+        .director-info {
+            flex: 1;
+        }
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .staff-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .staff-name {
+            font-weight: 600;
+            color: #1e3a5f;
+        }
+        .branch-title {
+            background-color: #0a1628;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            margin: 20px 0 15px 0;
+            font-size: 18px;
+        }
+        .assistant-director {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .assistant-photo .placeholder {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1e3a5f, #0a1628);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 28px;
+        }
+        .assistant-info h4 {
+            color: #0a1628;
+            margin-bottom: 5px;
+        }
+        .assistant-info p {
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #1e3a5f;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .staff-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.img-container {
+    width: 100%;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.img-container img {
+    max-width: 100%;
+    max-height: 160px;
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+}
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="top-bar">
+        Gobierno de San Andreas - Oficial
+    </div>
+    <div class="main-header">
+        <div class="logo-container">
+            <img src="images/fib-logo.png" alt="FIB Logo" class="logo" onerror="this.src='https://i.imgur.com/0nDiqyF.png'">
+            <h1>FEDERAL INVESTIGATION BUREAU<br><span>San Andreas - Departamento de Justicia</span></h1>
+        </div>
+    </div>
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="investigate.html">QUE INVESTIGAMOS</a></li>
+            <li><a href="wanted.html">MÁS BUSCADOS</a></li>
+            <li><a href="news.html">NOTICIAS</a></li>
+            <li><a href="help.html">CÓMO AYUDAMOS</a></li>
+            <li><a href="about.html">SOBRE FIB</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    
+
+    <!-- Hero con fondo degradado -->
+    <div class="leadership-hero">
+        <h2>Liderazgo y Estructura</h2>
+        <p>Conozca a los directivos del Federal Investigation Bureau y cómo está organizada la agencia</p>
+    </div>
+
+    <!-- Oficina del Director -->
+<div class="director-section">
+    <div class="director-photo">
+        <img src="images/chris-wray.png" alt="Christopher Wray" style="width: 100%; border-radius: 8px;" onerror="this.src='https://via.placeholder.com/200x250?text=Director'">
+    </div>
+    <div class="director-info">
+        <h3 style="color: #0a1628; border-left: 4px solid #1e3a5f; padding-left: 15px;">Director</h3>
+        <p><strong>Christopher Wray</strong></p>
+        <p><strong>Deputy Director:</strong> Giancarlo Basile</p>
+    </div>
+</div>
+
+    <!-- Ejecutivos del FIB -->
+<div class="executive-card">
+    <h3>Ejecutivos del FIB</h3>
+    
+    <div class="staff-grid">
+        <div class="staff-item">
+            <div class="img-container">
+                <img src="images/ert.png" alt="ERT">
+            </div>
+            <div>
+                <span class="staff-name">Evidence Response Team</span> – Daniel Lake
+            </div>
+        </div>
+        
+        <div class="staff-item">
+            <div class="img-container">
+                <img src="images/oficina-asuntos-internos.png" alt="Oficina de Asuntos Internos">
+            </div>
+            <div>
+                <span class="staff-name">Oficina de Asuntos Internos</span> – Salvatore Palmieri
+            </div>
+        </div>
+        
+        <div class="staff-item">
+            <div class="img-container">
+                <img src="images/surv.png" alt="Surveillance">
+            </div>
+            <div>
+                <span class="staff-name">Surveillance & Aviation Section</span> – David Toro
+            </div>
+        </div>
+        
+        <div class="staff-item">
+            <div class="img-container">
+                <img src="images/violent-crime.png" alt="Violent Crime">
+            </div>
+            <div>
+                <span class="staff-name">Violent Crime Task Force</span> – Brayan Cortés
+            </div>
+        </div>
+        
+        <div class="staff-item">
+            <div class="img-container">
+                <img src="images/fibpolice.png" alt="FIB Police">
+            </div>
+            <div>
+                <span class="staff-name">FIB Police</span> – Charles Blackwood
+            </div>
+        </div>
+        
+        <div class="staff-item">
+            <div class="img-container">
+                <img src="images/hrt.png" alt="DOA">
+            </div>
+            <div>
+                <span class="staff-name">Hostage Rescue Team</span> – Giancarlo Basile 
+            </div>
+        </div>
+        
+        <div class="staff-item">
+            <div class="img-container">
+                <img src="images/academy.png" alt="Academy">
+            </div>
+            <div>
+                <span class="staff-name">FIB National Academy</span> – Christopher Wray
+            </div>
+        </div>
+
+
+        <div class="staff-item">
+            <div class="img-container">
+                <img src="images/criminal-investigation.png" alt="Academy">
+            </div>
+            <div>
+                <span class="staff-name">Criminal Investigation Division</span> – Eva Brown
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    
+
+    <a href="index.html" class="back-link">← Volver al inicio</a>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>FIB San Andreas</h4>
+            <p>Protegiendo a los ciudadanos de Los Santos y el estado de San Andreas desde 1997.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Enlaces Rápidos</h4>
+            <ul>
+                <li><a href="investigate.html">Áreas de Investigación</a></li>
+                <li><a href="wanted.html">Los Más Buscados</a></li>
+                <li><a href="news.html">Comunicados de Prensa</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+    <h4>Contacto</h4>
+    <ul>
+        <li>Oficina Principal: Low Power Street, 3909 Pillbox Hill, Los Santos</li>
+        <li>Email: contacto@fib.sanandreas.gov</li>
+        <li style="display: flex; align-items: center; gap: 8px;">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg" alt="Discord" style="width: 20px; height: 20px; filter: invert(1);">
+            <a href="https://discord.gg/ETzcquNjat" target="_blank" style="color: #9cb3d4; text-decoration: none;">Discord: FIB Official</a>
+        </li>
+    </ul>
+</div>
+    </div>
+    <div class="footer-bottom">
+        <p>Este sitio web está hecho exclusivamente con fines de Roleplay en el juego "Grand Theft Auto V Legacy" del cual no se encuentra afiliado a sus creadores de manera oficial. Todos los derechos relacionados con; Nombres, marcas, y contenido son reservados para la compañía Rockstar Games, Rockstar North y Take Two Interactive. © Copyright MMXXV-MMXXVI.</p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
