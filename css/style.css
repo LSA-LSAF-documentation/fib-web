@@ -503,3 +503,102 @@ body {
         text-align: center;
     }
 }
+
+/* ============================================
+   MENÚ HAMBURGUESA - RESPONSIVE
+   ============================================ */
+
+/* Ocultar el botón hamburguesa en desktop */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    top: 8px;
+}
+
+/* Animación cuando el menú está abierto */
+.menu-toggle.active .hamburger {
+    background-color: transparent;
+}
+
+.menu-toggle.active .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.menu-toggle.active .hamburger::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+    
+    .main-header {
+        position: relative;
+        justify-content: center;
+    }
+    
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #0a1628;
+        z-index: 1000;
+    }
+    
+    .nav-menu.active {
+        display: block;
+    }
+    
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .nav-menu li a {
+        padding: 15px 20px;
+        text-align: center;
+        border-bottom: 1px solid #1e3a5f;
+    }
+    
+    .nav-menu li a:hover {
+        background-color: #1e3a5f;
+    }
+}

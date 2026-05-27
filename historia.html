@@ -54,8 +54,11 @@
             <img src="images/fib-logo.png" alt="FIB Logo" class="logo">
             <h1>FEDERAL INVESTIGATION BUREAU<br><span>San Andreas - Departamento de Justicia</span></h1>
         </div>
+        <button class="menu-toggle" id="menu-toggle">
+            <span class="hamburger"></span>
+        </button>
     </div>
-    <nav class="nav-menu">
+    <nav class="nav-menu" id="nav-menu">
         <ul>
             <li><a href="index.html">INICIO</a></li>
             <li><a href="investigate.html">QUE INVESTIGAMOS</a></li>
@@ -137,5 +140,26 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+    // Menú hamburguesa
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function() {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+</script>
 </body>
 </html>
