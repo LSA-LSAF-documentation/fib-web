@@ -170,6 +170,80 @@
         justify-content: center;
     }
 }
+
+/* Estilos profesionales para Ejecutivos del FIB */
+.staff-item {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.staff-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.staff-image {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.staff-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.staff-item:hover .staff-image img {
+    transform: scale(1.05);
+}
+
+.staff-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.staff-name {
+    font-weight: 700;
+    font-size: 16px;
+    color: #0a1628;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+.staff-leader {
+    font-size: 14px;
+    color: #1e3a5f;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.staff-btn {
+    display: inline-block;
+    background-color: #1e3a5f;
+    color: white;
+    padding: 8px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.staff-btn:hover {
+    background-color: #0f2b4a;
+    transform: scale(1.02);
+}
     </style>
 </head>
 <body>
@@ -232,85 +306,106 @@
     </div>
 </div>
 
-    <!-- Ejecutivos del FIB -->
+ <!-- Ejecutivos del FIB -->
 <div class="executive-card">
     <h3>Ejecutivos del FIB</h3>
     
     <div class="staff-grid">
+        <!-- Evidence Response Team -->
         <div class="staff-item">
-            <div class="img-container">
-                <img src="images/ert.png" alt="ERT">
+            <div class="staff-image">
+                <img src="images/ert.png" alt="Evidence Response Team">
             </div>
-            <div>
-                <span class="staff-name">Evidence Response Team</span> – Daniel Lake
+            <div class="staff-info">
+                <div class="staff-name">Evidence Response Team</div>
+                <div class="staff-leader">Daniel Lake</div>
+                <a href="evidence-response-team.html" class="staff-btn">Leer más →</a>
             </div>
         </div>
         
+        <!-- Oficina de Asuntos Internos -->
         <div class="staff-item">
-    <div style="margin-bottom: 10px; text-align: center;">
-        <img src="images/oficina-asuntos-internos.png" alt="Oficina de Asuntos Internos" style="width: 180px; height: auto; border-radius: 8px;">
-    </div>
-    <span class="staff-name">Oficina de Asuntos Internos</span> – Salvatore Palmieri
-    <div style="text-align: center; margin-top: 10px;">
-        <a href="oficina-asuntos-internos.html" style="display: inline-block; background-color: #1e3a5f; color: white; padding: 6px 15px; text-decoration: none; border-radius: 4px; font-size: 12px; font-weight: 600; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#0f2b4a'" onmouseout="this.style.backgroundColor='#1e3a5f'">Leer más →</a>
-    </div>
-</div>
-        
-        <div class="staff-item">
-            <div class="img-container">
-                <img src="images/surv.png" alt="Surveillance">
+            <div class="staff-image">
+                <img src="images/oficina-asuntos-internos.png" alt="Oficina de Asuntos Internos">
             </div>
-            <div>
-                <span class="staff-name">Surveillance & Aviation Section</span> – David Toro
+            <div class="staff-info">
+                <div class="staff-name">Oficina de Asuntos Internos</div>
+                <div class="staff-leader">Salvatore Palmieri</div>
+                <a href="oficina-asuntos-internos.html" class="staff-btn">Leer más →</a>
             </div>
         </div>
         
+        <!-- Surveillance & Aviation Section -->
         <div class="staff-item">
-            <div class="img-container">
-                <img src="images/violent-crime.png" alt="Violent Crime">
+            <div class="staff-image">
+                <img src="images/surv.png" alt="Surveillance & Aviation Section">
             </div>
-            <div>
-                <span class="staff-name">Violent Crime Task Force</span> – Brayan Cortés
+            <div class="staff-info">
+                <div class="staff-name">Surveillance & Aviation Section</div>
+                <div class="staff-leader">David Toro</div>
+                <a href="surveillance-aviation.html" class="staff-btn">Leer más →</a>
             </div>
         </div>
         
+        <!-- Violent Crime Task Force -->
         <div class="staff-item">
-            <div class="img-container">
+            <div class="staff-image">
+                <img src="images/violent-crime.png" alt="Violent Crime Task Force">
+            </div>
+            <div class="staff-info">
+                <div class="staff-name">Violent Crime Task Force</div>
+                <div class="staff-leader">Brayan Cortés</div>
+                <a href="violent-crime-task-force.html" class="staff-btn">Leer más →</a>
+            </div>
+        </div>
+        
+        <!-- FIB Police -->
+        <div class="staff-item">
+            <div class="staff-image">
                 <img src="images/fibpolice.png" alt="FIB Police">
             </div>
-            <div>
-                <span class="staff-name">FIB Police</span> – Charles Blackwood
+            <div class="staff-info">
+                <div class="staff-name">FIB Police</div>
+                <div class="staff-leader">Charles Blackwood</div>
+                <a href="fib-police.html" class="staff-btn">Leer más →</a>
             </div>
         </div>
         
+        <!-- Hostage Rescue Team -->
         <div class="staff-item">
-            <div class="img-container">
-                <img src="images/hrt.png" alt="DOA">
+            <div class="staff-image">
+                <img src="images/hrt.png" alt="Hostage Rescue Team">
             </div>
-            <div>
-                <span class="staff-name">Hostage Rescue Team</span> – Giancarlo Basile 
+            <div class="staff-info">
+                <div class="staff-name">Hostage Rescue Team</div>
+                <div class="staff-leader">Giancarlo Basile</div>
+                <a href="hostage-rescue-team.html" class="staff-btn">Leer más →</a>
             </div>
         </div>
         
+        <!-- FIB National Academy -->
         <div class="staff-item">
-            <div class="img-container">
-                <img src="images/academy.png" alt="Academy">
+            <div class="staff-image">
+                <img src="images/academy.png" alt="FIB National Academy">
             </div>
-            <div>
-                <span class="staff-name">FIB National Academy</span> – Christopher Wray
+            <div class="staff-info">
+                <div class="staff-name">FIB National Academy</div>
+                <div class="staff-leader">Christopher Wray</div>
+                <a href="fib-national-academy.html" class="staff-btn">Leer más →</a>
             </div>
         </div>
-
-
+        
+        <!-- Criminal Investigation Division -->
         <div class="staff-item">
-            <div class="img-container">
-                <img src="images/criminal-investigation.png" alt="Academy">
+            <div class="staff-image">
+                <img src="images/criminal-investigation.png" alt="Criminal Investigation Division">
             </div>
-            <div>
-                <span class="staff-name">Criminal Investigation Division</span> – Eva Brown
+            <div class="staff-info">
+                <div class="staff-name">Criminal Investigation Division</div>
+                <div class="staff-leader">Eva Brown</div>
+                <a href="criminal-investigation-division.html" class="staff-btn">Leer más →</a>
             </div>
         </div>
-
     </div>
 </div>
 
