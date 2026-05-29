@@ -5,77 +5,294 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FIB | Violent Crime Task Force (VCTF)</title>
     <link rel="icon" type="image/png" href="images/favicom.png">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .vctf-container {
-            background: white;
-            border-radius: 12px;
-            padding: 40px;
-            margin: 30px 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .vctf-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #e0e0e0;
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', 'Georgia', serif;
+            background-color: #f6f6f6;
+            color: #202122;
+            line-height: 1.6;
         }
-        .vctf-header h1 {
-            color: #0a1628;
-            margin-bottom: 10px;
+        
+        .site-header {
+            background-color: #0a1628;
+            color: white;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
-        .vctf-header p {
-            color: #1e3a5f;
-            font-size: 18px;
+        .top-bar {
+            background-color: #1e3a5f;
+            padding: 8px 20px;
+            font-size: 12px;
+            text-align: right;
+        }
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+        .logo-container h1 {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .logo-container h1 span {
+            font-size: 12px;
+            font-weight: 400;
+            display: block;
+            color: #9cb3d4;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .hamburger {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .hamburger::before, .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        .hamburger::before { top: -8px; }
+        .hamburger::after { top: 8px; }
+        .menu-toggle.active .hamburger { background-color: transparent; }
+        .menu-toggle.active .hamburger::before { transform: rotate(45deg); top: 0; }
+        .menu-toggle.active .hamburger::after { transform: rotate(-45deg); top: 0; }
+        
+        .nav-menu {
+            background-color: #0f1e3a;
+            padding: 0 40px;
+        }
+        .nav-menu ul {
+            list-style: none;
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        .nav-menu li a {
+            display: block;
+            padding: 14px 20px;
+            color: white;
+            text-decoration: none;
             font-weight: 600;
+            font-size: 14px;
+            transition: background-color 0.3s;
         }
-        .vctf-content h2 {
-            color: #0a1628;
-            border-left: 4px solid #1e3a5f;
-            padding-left: 15px;
-            margin: 25px 0 15px 0;
+        .nav-menu li a:hover {
+            background-color: #1e3a5f;
+            border-radius: 4px;
         }
-        .vctf-content p {
-            margin-bottom: 15px;
-            line-height: 1.8;
+        
+        .wikipedia-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
         }
-        .vctf-content ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-            line-height: 1.8;
+        .wiki-content {
+            background: white;
+            border: 1px solid #a2a9b1;
+            padding: 30px;
+            overflow: auto;
+        }
+        
+        .infobox {
+            float: right;
+            clear: right;
+            width: 280px;
+            background-color: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            font-size: 14px;
+            margin: 0 0 20px 20px;
+        }
+        .infobox-title {
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            background-color: #e9ecef;
+            padding: 10px;
+            border-bottom: 1px solid #a2a9b1;
+        }
+        .infobox-image {
+            text-align: center;
+            padding: 15px;
+            background-color: white;
+        }
+        .infobox-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 130px;
+        }
+        .infobox-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .infobox-table th, .infobox-table td {
+            padding: 8px 10px;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+        .infobox-table th {
+            font-weight: 700;
+            width: 38%;
+            background-color: #f1f3f5;
+        }
+        
+        .wiki-content h1 {
+            font-size: 32px;
+            font-weight: 400;
+            border-bottom: 1px solid #a2a9b1;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            font-family: 'Georgia', serif;
+        }
+        .wiki-content h2 {
+            font-size: 22px;
+            font-weight: 400;
+            border-bottom: 1px solid #a2a9b1;
+            margin: 30px 0 15px 0;
+            padding-bottom: 5px;
+            font-family: 'Georgia', serif;
+            clear: both;
+        }
+        .wiki-content p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+        .wiki-content ul {
+            margin-left: 30px;
+            margin-bottom: 16px;
+        }
+        .wiki-content li {
+            margin-bottom: 8px;
         }
         .back-link {
             display: inline-block;
-            margin-top: 20px;
-            color: #1e3a5f;
+            margin-top: 25px;
+            color: #0645ad;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
         }
-        .back-link:hover {
-            text-decoration: underline;
-        }
+        .back-link:hover { text-decoration: underline; }
+        
         @media (max-width: 768px) {
-            .vctf-container {
-                padding: 20px;
+            .main-header { flex-direction: column; text-align: center; }
+            .menu-toggle { display: block; position: absolute; right: 20px; top: 20px; }
+            .nav-menu { display: none; padding: 0; }
+            .nav-menu.active { display: block; }
+            .nav-menu ul { flex-direction: column; gap: 0; }
+            .nav-menu li a { padding: 12px 20px; text-align: center; }
+            
+            .infobox {
+                float: none;
+                width: 100%;
+                margin: 0 0 20px 0;
             }
+            .wiki-content { padding: 20px; }
+            .wiki-content h1 { font-size: 28px; }
+            .wiki-content h2 { font-size: 20px; clear: both; }
         }
+        
+        .site-footer {
+            background-color: #0a1628;
+            color: #9cb3d4;
+            padding: 40px 40px 20px;
+            margin-top: 60px;
+        }
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .footer-section h4 { color: white; margin-bottom: 15px; }
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 8px; }
+        .footer-section a { color: #9cb3d4; text-decoration: none; }
+        .footer-section a:hover { color: white; }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #1e3a5f;
+            font-size: 12px;
+        }
+
+        /* Mejora para que el texto fluya alrededor de la infobox sin espacios en blanco */
+.wiki-content {
+    overflow: visible;
+}
+
+.infobox {
+    float: right;
+    clear: right;
+    width: 280px;
+    margin: 0 0 20px 25px;
+}
+
+/* Evita que los títulos queden atrapados junto a la infobox */
+.wiki-content h1,
+.wiki-content h2,
+.wiki-content h3 {
+    clear: none;
+}
+
+/* El primer párrafo debe fluir junto a la infobox */
+.wiki-content p:first-of-type {
+    margin-top: 0;
+}
+
+/* Asegura que la infobox no bloquee el flujo del texto */
+.infobox + * {
+    margin-top: 0;
+}
     </style>
 </head>
 <body>
 
 <header class="site-header">
-    <div class="top-bar">
-        Gobierno de San Andreas - Oficial
-    </div>
+    <div class="top-bar">Gobierno de San Andreas - Oficial</div>
     <div class="main-header">
         <div class="logo-container">
             <img src="images/fib-logo.png" alt="FIB Logo" class="logo">
             <h1>FEDERAL INVESTIGATION BUREAU<br><span>San Andreas - Departamento de Justicia</span></h1>
         </div>
-        <button class="menu-toggle" id="menu-toggle">
-            <span class="hamburger"></span>
-        </button>
+        <button class="menu-toggle" id="menu-toggle"><span class="hamburger"></span></button>
     </div>
     <nav class="nav-menu" id="nav-menu">
         <ul>
@@ -89,53 +306,81 @@
     </nav>
 </header>
 
-<main class="container">
-    <div class="vctf-container">
-        <div class="vctf-header">
-            <h1>Violent Crime Task Force (VCTF)</h1>
-            <p>Unidad Especializada contra el Crimen Violento</p>
-            <p style="font-size: 14px; color: #666;">Comandante: Brayan Cortés</p>
+<main class="wikipedia-container">
+    <div class="wiki-content">
+        
+        <div class="infobox">
+            <div class="infobox-title">Violent Crime Task Force</div>
+            <div class="infobox-image">
+                <img src="images/violent-crime.png" alt="VCTF Insignia" onerror="this.style.display='none'">
+            </div>
+            <table class="infobox-table">
+                <tr><th>Agencia</th><td>Federal Investigation Bureau</td>
+                </tr>
+                <tr>
+                    <th>Dependiente de</th>
+                    <td>Rama Criminal y Cibernética</td>
+                </tr>
+                <tr>
+                    <th>Abreviatura</th>
+                    <td>VCTF</td>
+                </tr>
+                <tr>
+                    <th>Fundación</th>
+                    <td>1995</td>
+                </tr>
+                <tr>
+                    <th>Comandante actual</th>
+                    <td>Brayan Cortés</td>
+                </tr>
+                <tr>
+                    <th>Tipo</th>
+                    <td>Fuerza de Tarea Especializada</td>
+                </tr>
+            </table>
         </div>
         
-        <div class="vctf-content">
-            <h2>📜 Historia</h2>
-            <p>La Violent Crime Task Force (VCTF) del Federal Investigation Bureau (FIB) de San Andreas fue creada a mediados de la década de 1990 como respuesta al aumento drástico de homicidios, secuestros, robos armados y actividades de pandillas organizadas que afectaban a las principales ciudades del estado. El crecimiento del crimen violento, sumado a la expansión de organizaciones criminales interestatales, llevó al Gobierno Federal y al FIB a establecer una fuerza especializada capaz de coordinar investigaciones complejas y ejecutar operaciones de alto impacto contra delincuentes considerados extremadamente peligrosos.</p>
-            
-            <p>Antes de la creación de la VCTF, las investigaciones sobre crímenes violentos eran manejadas de manera independiente por oficinas locales y divisiones regionales, lo que frecuentemente generaba problemas de jurisdicción, falta de coordinación y dificultades para rastrear organizaciones criminales que operaban en múltiples ciudades o estados. Para solucionar esta situación, el FIB autorizó la formación de una fuerza de tarea permanente integrada por agentes federales, detectives estatales y oficiales especializados provenientes de diferentes agencias policiales de San Andreas.</p>
-            
-            <p>Desde sus primeros años, la Violent Crime Task Force se enfocó en la captura de fugitivos armados, líderes de pandillas, asesinos seriales, secuestradores y organizaciones responsables de delitos violentos de gran escala. La unidad desarrolló rápidamente una reputación agresiva y altamente efectiva debido a sus operaciones conjuntas, capacidad de despliegue rápido y uso intensivo de inteligencia criminal y vigilancia táctica.</p>
-            
-            <p>Durante finales de los años noventa y principios de los 2000, la VCTF participó en múltiples operaciones federales contra redes de tráfico de armas, bandas dedicadas al narcotráfico y grupos criminales responsables de asesinatos coordinados en áreas urbanas de alta peligrosidad. Estas operaciones llevaron al fortalecimiento de las capacidades tácticas y de inteligencia de la unidad, permitiéndole trabajar de manera cercana con divisiones SWAT, el Hostage Rescue Team (HRT), unidades antinarcóticos y equipos de análisis criminal del FIB.</p>
-            
-            <p>Con el paso de los años, la fuerza de tarea incorporó tecnologías avanzadas de análisis de datos, sistemas de rastreo, vigilancia electrónica y bases de inteligencia compartidas entre agencias federales, estatales y locales. Esto permitió a la VCTF ampliar significativamente su capacidad para identificar patrones criminales, desmantelar estructuras de pandillas violentas y localizar fugitivos de alta prioridad.</p>
-            
-            <p>Actualmente, la Violent Crime Task Force es una de las principales unidades operativas del FIB dedicadas a combatir delitos violentos en San Andreas. Sus agentes participan en investigaciones relacionadas con homicidios federales, secuestros, extorsión, tráfico de armas, crimen organizado, pandillas transnacionales y amenazas contra funcionarios públicos o infraestructura crítica.</p>
-            
-            <p>La VCTF mantiene estrecha cooperación con departamentos policiales locales, oficinas del Sheriff, agencias federales y divisiones de inteligencia criminal, coordinando operaciones conjuntas en zonas urbanas, rurales y fronterizas. Gracias a su experiencia operacional, capacidad investigativa y recursos tácticos, la Violent Crime Task Force se consolidó como una de las fuerzas federales más importantes en la lucha contra el crimen violento dentro de San Andreas.</p>
-            
-            <h2>🎯 Misión</h2>
-            <p>La misión principal de la Violent Crime Task Force (VCTF) del Federal Investigation Bureau (FIB) de San Andreas es identificar, investigar y neutralizar organizaciones criminales e individuos responsables de delitos violentos que representen una amenaza significativa para la seguridad pública y la estabilidad del estado.</p>
-            
-            <p>La VCTF está especializada en investigaciones relacionadas con homicidios federales, secuestros, extorsión, robos armados, tráfico ilegal de armas, pandillas organizadas, fugitivos de alta peligrosidad y actividades criminales interestatales vinculadas al crimen violento. La unidad trabaja de manera coordinada con agencias locales, estatales y federales para desarrollar operaciones conjuntas dirigidas a desmantelar estructuras criminales complejas y capturar objetivos prioritarios.</p>
-            
-            <p>Entre sus funciones principales se encuentran:</p>
-            <ul>
-                <li>La investigación de organizaciones criminales violentas y pandillas transnacionales;</li>
-                <li>La localización y captura de fugitivos considerados armados y peligrosos;</li>
-                <li>La coordinación de operaciones federales de alto riesgo relacionadas con homicidios, secuestros y extorsión;</li>
-                <li>La recopilación y análisis de inteligencia criminal para prevenir actos de violencia organizada;</li>
-                <li>La ejecución de órdenes federales de arresto y allanamientos tácticos;</li>
-                <li>La asistencia a departamentos policiales locales en investigaciones de gran complejidad;</li>
-                <li>La identificación y desarticulación de redes de tráfico de armas y estructuras criminales asociadas;</li>
-                <li>La protección de testigos federales y víctimas vinculadas a investigaciones de crimen violento.</li>
-            </ul>
-            
-            <p>La VCTF también mantiene capacidades de despliegue rápido para responder a incidentes críticos relacionados con violencia armada, enfrentamientos entre pandillas, amenazas contra funcionarios públicos y situaciones que requieran apoyo táctico inmediato.</p>
-            
-            <p>Los agentes asignados a la unidad reciben entrenamiento especializado en investigaciones criminales complejas, operaciones tácticas, inteligencia de pandillas, vigilancia encubierta, análisis forense y coordinación interagencial. Gracias a estas capacidades, la Violent Crime Task Force desempeña un papel fundamental en la reducción del crimen violento y en la protección de la población de San Andreas frente a amenazas criminales de alto riesgo.</p>
-        </div>
+        <h1>Violent Crime Task Force (VCTF)</h1>
+        
+        <p>La <b>Violent Crime Task Force (VCTF)</b> del Federal Investigation Bureau (FIB) de San Andreas es una unidad especializada creada a mediados de la década de 1990 como respuesta al aumento drástico de homicidios, secuestros, robos armados y actividades de pandillas organizadas que afectaban a las principales ciudades del estado. Su objetivo es identificar, investigar y neutralizar organizaciones criminales e individuos responsables de delitos violentos que representen una amenaza significativa para la seguridad pública.</p>
+        
+        <h2>📜 Historia</h2>
+        <p>La Violent Crime Task Force (VCTF) del Federal Investigation Bureau (FIB) de San Andreas fue creada a mediados de la década de 1990 como respuesta al aumento drástico de homicidios, secuestros, robos armados y actividades de pandillas organizadas que afectaban a las principales ciudades del estado. El crecimiento del crimen violento, sumado a la expansión de organizaciones criminales interestatales, llevó al Gobierno Federal y al FIB a establecer una fuerza especializada capaz de coordinar investigaciones complejas y ejecutar operaciones de alto impacto contra delincuentes considerados extremadamente peligrosos.</p>
+        
+        <p>Antes de la creación de la VCTF, las investigaciones sobre crímenes violentos eran manejadas de manera independiente por oficinas locales y divisiones regionales, lo que frecuentemente generaba problemas de jurisdicción, falta de coordinación y dificultades para rastrear organizaciones criminales que operaban en múltiples ciudades o estados. Para solucionar esta situación, el FIB autorizó la formación de una fuerza de tarea permanente integrada por agentes federales, detectives estatales y oficiales especializados provenientes de diferentes agencias policiales de San Andreas.</p>
+        
+        <p>Desde sus primeros años, la Violent Crime Task Force se enfocó en la captura de fugitivos armados, líderes de pandillas, asesinos seriales, secuestradores y organizaciones responsables de delitos violentos de gran escala. La unidad desarrolló rápidamente una reputación agresiva y altamente efectiva debido a sus operaciones conjuntas, capacidad de despliegue rápido y uso intensivo de inteligencia criminal y vigilancia táctica.</p>
+        
+        <p>Durante finales de los años noventa y principios de los 2000, la VCTF participó en múltiples operaciones federales contra redes de tráfico de armas, bandas dedicadas al narcotráfico y grupos criminales responsables de asesinatos coordinados en áreas urbanas de alta peligrosidad. Estas operaciones llevaron al fortalecimiento de las capacidades tácticas y de inteligencia de la unidad, permitiéndole trabajar de manera cercana con divisiones SWAT, el Hostage Rescue Team (HRT), unidades antinarcóticos y equipos de análisis criminal del FIB.</p>
+        
+        <p>Con el paso de los años, la fuerza de tarea incorporó tecnologías avanzadas de análisis de datos, sistemas de rastreo, vigilancia electrónica y bases de inteligencia compartidas entre agencias federales, estatales y locales. Esto permitió a la VCTF ampliar significativamente su capacidad para identificar patrones criminales, desmantelar estructuras de pandillas violentas y localizar fugitivos de alta prioridad.</p>
+        
+        <p>Actualmente, la Violent Crime Task Force es una de las principales unidades operativas del FIB dedicadas a combatir delitos violentos en San Andreas. Sus agentes participan en investigaciones relacionadas con homicidios federales, secuestros, extorsión, tráfico de armas, crimen organizado, pandillas transnacionales y amenazas contra funcionarios públicos o infraestructura crítica.</p>
+        
+        <p>La VCTF mantiene estrecha cooperación con departamentos policiales locales, oficinas del Sheriff, agencias federales y divisiones de inteligencia criminal, coordinando operaciones conjuntas en zonas urbanas, rurales y fronterizas. Gracias a su experiencia operacional, capacidad investigativa y recursos tácticos, la Violent Crime Task Force se consolidó como una de las fuerzas federales más importantes en la lucha contra el crimen violento dentro de San Andreas.</p>
+        
+        <h2>🎯 Misión</h2>
+        <p>La misión principal de la Violent Crime Task Force (VCTF) del Federal Investigation Bureau (FIB) de San Andreas es identificar, investigar y neutralizar organizaciones criminales e individuos responsables de delitos violentos que representen una amenaza significativa para la seguridad pública y la estabilidad del estado.</p>
+        
+        <p>La VCTF está especializada en investigaciones relacionadas con homicidios federales, secuestros, extorsión, robos armados, tráfico ilegal de armas, pandillas organizadas, fugitivos de alta peligrosidad y actividades criminales interestatales vinculadas al crimen violento. La unidad trabaja de manera coordinada con agencias locales, estatales y federales para desarrollar operaciones conjuntas dirigidas a desmantelar estructuras criminales complejas y capturar objetivos prioritarios.</p>
+        
+        <p>Entre sus funciones principales se encuentran:</p>
+        <ul>
+            <li>La investigación de organizaciones criminales violentas y pandillas transnacionales;</li>
+            <li>La localización y captura de fugitivos considerados armados y peligrosos;</li>
+            <li>La coordinación de operaciones federales de alto riesgo relacionadas con homicidios, secuestros y extorsión;</li>
+            <li>La recopilación y análisis de inteligencia criminal para prevenir actos de violencia organizada;</li>
+            <li>La ejecución de órdenes federales de arresto y allanamientos tácticos;</li>
+            <li>La asistencia a departamentos policiales locales en investigaciones de gran complejidad;</li>
+            <li>La identificación y desarticulación de redes de tráfico de armas y estructuras criminales asociadas;</li>
+            <li>La protección de testigos federales y víctimas vinculadas a investigaciones de crimen violento.</li>
+        </ul>
+        
+        <p>La VCTF también mantiene capacidades de despliegue rápido para responder a incidentes críticos relacionados con violencia armada, enfrentamientos entre pandillas, amenazas contra funcionarios públicos y situaciones que requieran apoyo táctico inmediato.</p>
+        
+        <p>Los agentes asignados a la unidad reciben entrenamiento especializado en investigaciones criminales complejas, operaciones tácticas, inteligencia de pandillas, vigilancia encubierta, análisis forense y coordinación interagencial. Gracias a estas capacidades, la Violent Crime Task Force desempeña un papel fundamental en la reducción del crimen violento y en la protección de la población de San Andreas frente a amenazas criminales de alto riesgo.</p>
+        
     </div>
-    
     <a href="leadership-and-structure.html" class="back-link">← Volver a Liderazgo y Estructura</a>
 </main>
 
@@ -147,41 +392,30 @@
         </div>
         <div class="footer-section">
             <h4>Enlaces Rápidos</h4>
-            <ul>
-                <li><a href="investigate.html">Áreas de Investigación</a></li>
-                <li><a href="wanted.html">Los Más Buscados</a></li>
-                <li><a href="leadership-and-structure.html">Liderazgo y Estructura</a></li>
-            </ul>
+            <ul><li><a href="investigate.html">Áreas de Investigación</a></li><li><a href="wanted.html">Los Más Buscados</a></li><li><a href="leadership-and-structure.html">Liderazgo y Estructura</a></li></ul>
         </div>
         <div class="footer-section">
             <h4>Contacto</h4>
             <ul>
                 <li>Oficina Principal: Rockford Hills, LS</li>
                 <li>Email: contacto@fib.sanandreas.gov</li>
-                <li style="display: flex; align-items: center; gap: 8px;">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg" alt="Discord" style="width: 20px; height: 20px; filter: invert(1);">
-                    <a href="https://discord.gg/ETzcquNjat" target="_blank" style="color: #9cb3d4; text-decoration: none;">Discord: FIB Official</a>
-                </li>
+                <li style="display: flex; align-items: center; gap: 8px;"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg" alt="Discord" style="width: 20px; height: 20px; filter: invert(1);"><a href="https://discord.gg/ETzcquNjat" target="_blank" style="color: #9cb3d4;">Discord: FIB Official</a></li>
             </ul>
         </div>
     </div>
     <div class="footer-bottom">
-        <p>Este es un sitio para fines de ROLEPLAY en GTA V. FIB es una marca registrada de Rockstar Games. © 2025 Comunidad Roleplay</p>
+        <p>Este sitio web está hecho exclusivamente con fines de Roleplay en el juego "Grand Theft Auto V Legacy" del cual no se encuentra afiliado a sus creadores de manera oficial. Todos los derechos relacionados con; Nombres, marcas, y contenido son reservados para la compañía Rockstar Games, Rockstar North y Take Two Interactive. © Copyright MMXXV-MMXXVI.</p>
     </div>
 </footer>
 
-<script src="js/main.js"></script>
 <script>
-    // Menú hamburguesa
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
-
     if (menuToggle && navMenu) {
         menuToggle.addEventListener('click', function() {
             menuToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
-
         const navLinks = navMenu.querySelectorAll('a');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
